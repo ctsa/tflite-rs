@@ -314,6 +314,8 @@ mod tests {
 
     #[test]
     fn flatbuffer_model_apis_inspect() {
+        eprintln!("Starting flatbuffer_model_apis_inspect");
+
         assert!(Model::from_file("data.mnist10.bin").is_err());
 
         let model = Model::from_file("data/MNISTnet_uint8_quant.tflite").unwrap();
@@ -372,6 +374,8 @@ mod tests {
 
     #[test]
     fn flatbuffer_model_apis_mutate() {
+        eprintln!("Starting flatbuffer_model_apis_mutate");
+
         let mut model = Model::from_file("data/MNISTnet_uint8_quant.tflite").unwrap();
         model.version = 2;
         model.operator_codes.erase(4);
@@ -402,6 +406,8 @@ mod tests {
 
     #[test]
     fn flatbuffer_model_apis_insert() {
+        eprintln!("Starting flatbuffer_model_apis_insert");
+
         let mut model1 = Model::from_file("data/MNISTnet_uint8_quant.tflite").unwrap();
         let mut model2 = Model::from_file("data/MNISTnet_uint8_quant.tflite").unwrap();
 
@@ -417,6 +423,8 @@ mod tests {
 
     #[test]
     fn flatbuffer_model_apis_extract() {
+        eprintln!("Starting flatbuffer_model_apis_extract");
+
         let source_model = Model::from_file("data/MNISTnet_uint8_quant.tflite").unwrap();
         let source_subgraph = &source_model.subgraphs[0];
         let source_operator = &source_subgraph.operators[0];
@@ -526,6 +534,8 @@ mod tests {
 
     #[test]
     fn unittest_buffer_clone() {
+        eprintln!("Starting unittest_buffer_clone");
+
         let (buffer1, buffer2) = {
             let model = Model::from_file("data/MNISTnet_uint8_quant.tflite").unwrap();
             let buffer = &model.buffers[0];
@@ -536,6 +546,8 @@ mod tests {
 
     #[test]
     fn unittest_tensor_clone() {
+        eprintln!("Starting unittest_tensor_clone");
+
         let (tensor1, tensor2) = {
             let model = Model::from_file("data/MNISTnet_uint8_quant.tflite").unwrap();
             let tensor = &model.subgraphs[0].tensors[0];
@@ -551,6 +563,8 @@ mod tests {
 
     #[test]
     fn unittest_operator_clone() {
+        eprintln!("Starting unittest_operator_clone");
+
         let (operator1, operator2) = {
             let model = Model::from_file("data/MNISTnet_uint8_quant.tflite").unwrap();
             let operator = &model.subgraphs[0].operators[0];
@@ -571,6 +585,8 @@ mod tests {
 
     #[test]
     fn unittest_build_model() {
+        eprintln!("Starting unittest_build_model");
+
         let mut model = Model::default();
         model.version = 3;
         model.description.assign(&CString::new("model pad").unwrap());

@@ -104,6 +104,8 @@ mod tests {
 
     #[test]
     fn unittest_struct_with_strings() {
+        eprintln!("Starting unittest_struct_with_strings");
+
         #[allow(deprecated)]
         let x = unsafe {
             cpp!([] -> &mut StructWithStrings as "struct_with_strings*" {

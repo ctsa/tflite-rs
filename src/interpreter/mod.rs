@@ -460,6 +460,8 @@ mod tests {
 
     #[test]
     fn threadsafe_types() {
+        eprintln!("Starting threadsafe_types");
+
         fn send_sync<T: Send + Sync>(_t: &T) {}
         let model = FlatBufferModel::build_from_file("data/MNISTnet_uint8_quant.tflite")
             .expect("Unable to build flatbuffer model");

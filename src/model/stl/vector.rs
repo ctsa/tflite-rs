@@ -288,6 +288,8 @@ mod tests {
 
     #[test]
     fn unittest_vector_default() {
+        eprintln!("Starting unittest_vector_default");
+
         let mut vs = VectorOfU8::default();
         assert_eq!(vs.size(), 0);
 
@@ -305,6 +307,8 @@ mod tests {
 
     #[test]
     fn unittest_vector_clone() {
+        eprintln!("Starting unittest_vector_clone");
+
         let mut vs = VectorOfU8::default();
         vs.assign(0u8..6);
         assert_eq!(vs.size(), 6);
